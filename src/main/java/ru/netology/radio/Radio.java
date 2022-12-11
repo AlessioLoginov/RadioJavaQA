@@ -13,44 +13,48 @@ public class Radio {
     }
 
     public void setCurrentNumberStation(int station) {
-        if (numberStation >= 0) {
-            if (numberStation <= 9) {
+        if (station >= 0) {
+            if (station <= 9) {
                 this.numberStation = station;
             }
         }
     }
 
-        private void setCurrentSoundVolume ( int volume){
-            this.soundVolume = volume;
-        }
-
-        public void increaseVolume () {
-            if (getCurrentSoundVolume() < 10) {
-                setCurrentSoundVolume(getCurrentSoundVolume() + 1);
+    void setCurrentSoundVolume(int volume) {
+        if (volume >= 0) {
+            if (volume <= 10) {
+                this.soundVolume = volume;
             }
         }
-
-        public void decreaseVolume () {
-            if (getCurrentSoundVolume() > 0) {
-                setCurrentSoundVolume(getCurrentSoundVolume() - 1);
-            }
-        }
-
-        public void moveNextStation () {
-            if (getCurrentNumberStation() == 9) {
-                setCurrentNumberStation(0);
-            } else {
-                setCurrentNumberStation(getCurrentNumberStation() + 1);
-            }
-        }
-
-        public void movePrevStation () {
-            if (getCurrentNumberStation() == 0) {
-                setCurrentNumberStation(9);
-            } else {
-                setCurrentNumberStation(getCurrentNumberStation() - 1);
-            }
-        }
-
     }
+
+    public void increaseVolume() {
+        if (getCurrentSoundVolume() < 10) {
+            setCurrentSoundVolume(getCurrentSoundVolume() + 1);
+        }
+    }
+
+    public void decreaseVolume() {
+        if (getCurrentSoundVolume() > 0) {
+            setCurrentSoundVolume(getCurrentSoundVolume() - 1);
+        }
+    }
+
+    public void moveNextStation() {
+        if (getCurrentNumberStation() == 9) {
+            setCurrentNumberStation(0);
+        } else {
+            setCurrentNumberStation(getCurrentNumberStation() + 1);
+        }
+    }
+
+    public void movePrevStation() {
+        if (getCurrentNumberStation() == 0) {
+            setCurrentNumberStation(9);
+        } else {
+            setCurrentNumberStation(getCurrentNumberStation() - 1);
+        }
+    }
+
+}
 
