@@ -1,5 +1,14 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+
 public class Radio {
     private int numberOfStations = 10; //количество станций
     private int minVolume = 0; //минимальный звук
@@ -7,34 +16,7 @@ public class Radio {
     private int numberStation; //номер текущей радиостанции
     int soundVolume; // громкость звука
 
-    public Radio () { //конструктор по умолчанию
 
-    }
-
-    public Radio (int numberStations) {
-        this.numberOfStations = numberStations;
-    }
-
-
-    public int getNumberOfStations() {
-        return numberOfStations;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public int getCurrentNumberStation() {
-        return numberStation;
-    }
-
-    public int getCurrentSoundVolume() {
-        return soundVolume;
-    }
 
     public void setCurrentNumberStation(int station) {
         if (station >= 0) {
@@ -53,30 +35,30 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (getCurrentSoundVolume() < maxVolume) {
-            setCurrentSoundVolume(getCurrentSoundVolume() + 1);
+        if (soundVolume < maxVolume) {
+            setCurrentSoundVolume(soundVolume + 1);
         }
     }
 
     public void decreaseVolume() {
-        if (getCurrentSoundVolume() > minVolume) {
-            setCurrentSoundVolume(getCurrentSoundVolume() - 1);
+        if (soundVolume > minVolume) {
+            setCurrentSoundVolume(soundVolume - 1);
         }
     }
 
     public void moveNextStation() {
-        if (getCurrentNumberStation() == numberOfStations-1) {
+        if (numberStation == numberOfStations-1) {
             setCurrentNumberStation(0);
         } else {
-            setCurrentNumberStation(getCurrentNumberStation() + 1);
+            setCurrentNumberStation(numberStation + 1);
         }
     }
 
     public void movePrevStation() {
-        if (getCurrentNumberStation() == 0) {
+        if (numberStation == 0) {
             setCurrentNumberStation(numberOfStations-1);
         } else {
-            setCurrentNumberStation(getCurrentNumberStation() - 1);
+            setCurrentNumberStation(numberStation - 1);
         }
     }
 
