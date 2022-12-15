@@ -43,8 +43,20 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
+
     @Test
     public void shouldIncreaseVolumeInCorrectMoreTen() {
+        Radio myRadio = new Radio();
+        myRadio.soundVolume = 15;
+        myRadio.increaseVolume();
+        int expected = 15;
+        int actual = myRadio.getCurrentSoundVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldIncreaseVolumeCorrectMoreTen() {
         Radio myRadio = new Radio();
         myRadio.setCurrentSoundVolume(15);
         int expected = 0;
